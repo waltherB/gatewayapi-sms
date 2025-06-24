@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <record id="sms_tsms_view_form" model="ir.ui.view">
+        <field name="name">gatewayapi.sms.view.form</field>
+        <field name="model">sms.sms</field>
+        <field name="inherit_id" ref="sms.sms_tsms_view_form" />
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='failure_type']" position="after">
+                <field name="sms_api_error" invisible="sms_api_error == False" readonly="True"/>
+            </xpath>
+        </field>
+    </record>
+</odoo>

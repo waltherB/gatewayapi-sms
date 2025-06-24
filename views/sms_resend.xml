@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo><data>
+    <record id="mail_resend_message_view_form" model="ir.ui.view">
+        <field name="name">sms.resend.form</field>
+        <field name="model">sms.resend</field>
+        <field name="inherit_id" ref="sms.mail_resend_message_view_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='failure_type']" position="after">
+                <field name="failure_reason" string="Failure Description" class="text-wrap"/>
+            </xpath>
+        </field>
+    </record>
+</data></odoo>

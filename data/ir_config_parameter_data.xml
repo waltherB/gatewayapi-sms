@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="1"> <!-- noupdate="1" to prevent overwriting user's value on module update -->
+        <record id="gatewayapi_webhook_jwt_secret" model="ir.config_parameter">
+            <field name="key">gatewayapi.webhook_jwt_secret</field>
+            <field name="value"></field> <!-- Default empty value -->
+        </record>
+        
+        <record id="gatewayapi_webhook_require_jwt" model="ir.config_parameter">
+            <field name="key">gatewayapi.webhook_require_jwt</field>
+            <field name="value">true</field> <!-- Default to requiring JWT -->
+        </record>
+    </data>
+</odoo>

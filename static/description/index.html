@@ -1,0 +1,168 @@
+<h1 id="gatewayapi-sms-connector">GatewayAPI SMS Connector</h1>
+<img src="banner.png" alt="SMS Banner" style="width:100%; max-width:1200px;">
+<p>This module integrates Odoo with the GatewayAPI SMS REST API,  and replaces the Odoo sms IAP with GatewayAPI integration, allowing you to send SMS messages directly from Odoo using your GatewayAPI account.</p>
+
+<h2>Configuration</h2>
+<ul>
+  <li>Go to: <strong>Settings &gt; Technical &gt; IAP &gt; IAP Accounts</strong></li>
+  <li>Set the Provider to <strong>GatewayAPI</strong></li>
+  <li>Fill in your <strong>Service Name</strong> (must be <em>sms</em>) and <strong>API Token</strong> (from your GatewayAPI dashboard)</li>
+  <li>Optionally set a minimum credit threshold and notification action</li>
+  <li>Click <strong>Test Connection</strong> to verify your setup</li>
+</ul>
+
+<h2>Features</h2>
+<ul>
+  <li>Send SMS via GatewayAPI from Odoo</li>
+  <li>Automatic credit balance checks and notifications</li>
+  <li>Easy configuration and integration</li>
+</ul>
+
+<h2>Screenshots</h2>
+<div class="row">
+  <div class="col-md-6">
+    <img src="screenshot_01_config.png" alt="Configuration" style="max-width:100%;">
+    <p class="text-center"><strong>Configuration</strong></p>
+  </div>
+  <div class="col-md-6">
+    <img src="screenshot_02_test_connection.png" alt="Test Connection" style="max-width:100%;">
+    <p class="text-center"><strong>Test Connection</strong></p>
+  </div>
+</div>
+<div class="row">
+  <div class="col-md-6">
+    <img src="screenshot_03_notification.png" alt="Notification" style="max-width:100%;">
+    <p class="text-center"><strong>Notification</strong></p>
+  </div>
+  <div class="col-md-6">
+    <img src="screenshot_04_balance.png" alt="Balance" style="max-width:100%;">
+    <p class="text-center"><strong>Balance</strong></p>
+  </div>
+</div>
+<div class="row">
+  <div class="col-md-6">
+    <img src="Screenshot_05_jwt.png" alt="JWT Verification" style="max-width:100%;">
+    <p class="text-center"><strong>JWT Verification</strong></p>
+  </div>
+</div>
+
+<h2>Support</h2>
+<p>For more information, see the <a href="https://gatewayapi.com/docs/">GatewayAPI documentation</a> or visit the <a href="https://github.com/waltherB/gatewayapi_sms">project repository</a>.</p>
+
+<div class="oe_row oe_spaced">
+    <h2 class="oe_slogan" style="color:#875A7B;">Delivery Status Updates (Webhooks)</h2>
+    <h3 class="oe_slogan">Receive real-time SMS delivery status updates</h3>
+    <div class="oe_span12">
+        <p class="oe_mt32">
+            Configure webhooks in your GatewayAPI dashboard to receive delivery status updates for your SMS messages.
+            The module processes these updates and updates the SMS status in Odoo accordingly.
+        </p>
+        <div class="oe_span12">
+            <h4>Webhook Configuration</h4>
+            <ul>
+                <li>Webhook URL: <code>https://&lt;your_odoo_domain&gt;/gatewayapi/dlr</code></li>
+                <li>Authentication: JWT (JSON Web Token) in X-Gwapi-Signature header</li>
+                <li>Status Mapping:
+                    <ul>
+                        <li>DELIVERED/ACCEPTED → sent</li>
+                        <li>UNDELIVERABLE → error (sms_unregistered)</li>
+                        <li>REJECTED → error (sms_blacklist)</li>
+                        <li>EXPIRED/SKIPPED → error (sms_other)</li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+        <div class="oe_span12">
+            <h4>Security Setup</h4>
+            <ol>
+                <li>Activate Developer Mode in Odoo</li>
+                <li>Go to Settings > Technical > Parameters > System Parameters</li>
+                <li>Create parameter:
+                    <ul>
+                        <li>Key: <code>gatewayapi.webhook_jwt_secret</code></li>
+                        <li>Value: Your GatewayAPI webhook secret</li>
+                    </ul>
+                </li>
+            </ol>
+        </div>
+        <div class="oe_span12">
+            <h4>Nginx Configuration Example</h4>
+            <p>
+                For production environments, we recommend using Nginx as a reverse proxy with the following security features:
+            </p>
+            <ul>
+                <li>SSL/TLS encryption</li>
+                <li>IP whitelisting for GatewayAPI servers</li>
+                <li>Rate limiting</li>
+                <li>Proper buffer and timeout settings</li>
+            </ul>
+            <p>
+                A complete Nginx configuration example is available in <code>docs/nginx_webhook_example.conf</code>.
+                This configuration includes:
+            </p>
+            <ul>
+                <li>SSL/TLS configuration with modern cipher suites</li>
+                <li>IP-based access control for GatewayAPI servers</li>
+                <li>Rate limiting (10 requests/second with burst of 20)</li>
+                <li>Optimized proxy settings for Odoo</li>
+                <li>HTTP to HTTPS redirection</li>
+            </ul>
+        </div>
+    </div>
+</div>
+<h2 class="oe_slogan" style="color:#875A7B;">Testing Webhook Configuration</h2>
+<h3 class="oe_slogan">Verify your webhook setup</h3>
+<div class="oe_span12">
+    <p class="oe_mt32">
+        To verify your Odoo instance's ability to receive and process GatewayAPI webhooks, including JWT authentication, you can use the provided Python script: <code>scripts/test_webhook_config.py</code>.
+    </p>
+    <div class="oe_span12">
+        <h4>Purpose of the Script</h4>
+        <ul>
+            <li>Confirm if the <code>gatewayapi.webhook_jwt_secret</code> system parameter is correctly configured in your Odoo instance.</li>
+            <li>Test the accessibility and JWT authentication of your <code>/gatewayapi/dlr</code> webhook endpoint.</li>
+            <li>Simulate a Delivery Report (DLR) request from GatewayAPI, including a properly signed JWT token.</li>
+        </ul>
+    </div>
+    <div class="oe_span12">
+        <h4>Usage</h4>
+        <ol>
+            <li>
+                <strong>Install Required Python Packages</strong>:<br/>
+                If you haven't already, install the necessary Python libraries:
+                <pre><code>pip install requests pyjwt</code></pre>
+            </li>
+            <li>
+                <strong>Set Environment Variables</strong>:<br/>
+                Configure the script by setting the following environment variables. Replace placeholders with your actual Odoo instance details.
+                <pre><code>export ODOO_URL="example.com"             # Your Odoo domain (e.g., example.com)
+export ODOO_DB="your_database_name"     # Your Odoo database name
+export ODOO_USER="your_admin_username" # An Odoo user with API access (e.g., admin)
+export ODOO_API_KEY='YOUR_GENERATED_API_KEY' # Generate an API key for the ODOO_USER in Odoo (My Profile -> Account Security -> API Keys)
+unset ODOO_PASSWORD                     # Recommended: Unset password if using API key
+export VERIFY_SSL="false"               # Set to "true" or "false" based on your SSL certificate setup</code></pre>
+                <em>Note: If your Odoo user has 2FA enabled, using an API Key (<code>ODOO_API_KEY</code>) is highly recommended as the script does not support 2FA codes directly.</em>
+            </li>
+            <li>
+                <strong>Run the Script</strong>:<br/>
+                Execute the script from your terminal:
+                <pre><code>python3 scripts/test_webhook_config.py</code></pre>
+            </li>
+        </ol>
+    </div>
+    <div class="oe_span12">
+        <h4>Expected Output</h4>
+        <p>
+            The script will provide detailed logs indicating:
+        </p>
+        <ul>
+            <li>Whether authentication with Odoo was successful.</li>
+            <li>If the JWT secret is found and correctly configured.</li>
+            <li>The exact <code>iat</code> (issued at) and <code>exp</code> (expires at) timestamps embedded in the test JWT token, which can help diagnose time synchronization issues.</li>
+            <li>The status of the simulated webhook call to your Odoo instance (e.g., 200 OK, 401 Unauthorized, etc.).</li>
+        </ul>
+        <p>
+            A successful run will show messages indicating that the JWT secret is configured and the webhook test was successful with a 200 OK response from Odoo.
+        </p>
+    </div>
+</div> 
