@@ -10,9 +10,7 @@
             <field name="interval_number">10</field>
             <field name="interval_type">minutes</field>
             <field name="active">True</field>
-            <field name="doall">False</field>
             <field name="nextcall" eval="(datetime.now() + timedelta(hours=1)).strftime('%Y-%m-%d %H:%M:%S')"/>
-            <field name="numbercall">-1</field>
             <field name="priority">5</field>
             <field name="help" type="html">
                 <p>

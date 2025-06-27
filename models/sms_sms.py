@@ -7,7 +7,6 @@ import re
 
 _logger = logging.getLogger(__name__)
 _logger.setLevel(logging.DEBUG)
-logging.basicConfig(level=logging.DEBUG)
 
 
 class Sms(models.Model):

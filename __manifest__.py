@@ -1,12 +1,12 @@
 # -*- coding: utf-8 -*-
 {
     'name': "GatewayAPI SMS Connector",
-    'summary': "Send SMS with GatewayAPI",
+    'summary': "Send SMS with GatewayAPI (Odoo 18)",
     'author': "Walther Barnett",
     'website': "https://github.com/waltherB/gatewayapi_sms",
     'license': 'AGPL-3',
     'category': 'Tools',
-    'version': '17.0.3.0.1',
+    'version': '18.0.0.0.1',
     'application': False,
     'installable': True,
     'auto_install': False,
@@ -38,11 +38,11 @@
         'static/description/screenshot_04_balance.png',
         'static/description/Screenshot_05_jwt.png',
     ],
-    'description': """\
-GatewayAPI SMS Connector for Odoo 17
+    'description': """
+GatewayAPI SMS Connector for Odoo 18
 ------------------------------------
 Send SMS via GatewayAPI directly from Odoo. This module enhances IAP
-    accounts for use with GatewayAPI.
+accounts for use with GatewayAPI.
 
 Features include:
 - Secure API Token management with a show/hide toggle.

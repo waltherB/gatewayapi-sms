@@ -5,8 +5,8 @@
         <field name="model">iap.account</field>
         <field name="inherit_id" ref="iap.iap_account_view_form"/>
         <field name="arch" type="xml">
-            <!-- Add provider field -->
-            <xpath expr="//field[@name='service_name']" position="before">
+            <!-- Add provider field (anchor changed for Odoo 18 compatibility) -->
+            <xpath expr="//field[@name='name']" position="after">
                 <field name="provider" widget="selection" required="1"
                        options="{'no_create': True, 'no_open': True}"
                        default="sms_api_gatewayapi"/>

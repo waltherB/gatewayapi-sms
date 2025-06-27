@@ -7,7 +7,6 @@ import logging
 import requests
 
 _logger = logging.getLogger(__name__)
-logging.basicConfig(level=logging.DEBUG)
 
 class IapAccount(models.Model):
     _name = "iap.account"
