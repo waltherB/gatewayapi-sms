@@ -1,4 +1,4 @@
-# GatewayAPI SMS Connector for Odoo 17
+# GatewayAPI SMS Connector for Odoo 18
 
 Send SMS messages directly from Odoo using the GatewayAPI service. This module replaces the default Odoo SMS IAP with a secure, feature-rich GatewayAPI integration.
 
@@ -15,7 +15,7 @@ Send SMS messages directly from Odoo using the GatewayAPI service. This module r
 - **Direct Email Notifications**: Receive low credit alerts at a user-defined email address.
 - **Batch Sending**: Efficiently send multiple SMS messages to GatewayAPI in batches.
 - **Easy Configuration**: Intuitive form layout and clear help texts.
-- **Odoo 17 Compatible**: Built and tested for Odoo 17.
+- **Odoo 18 Compatible**: Built and tested for Odoo 18.
 
 ---
 
@@ -79,9 +79,9 @@ pip install phonenumbers requests pyjwt
 5. Click **Test Connection** to verify your setup. The result will be shown in the *Connection Status* field.
 6. Use the eye/eye-slash button to show/hide your API token securely.
 
-### Important Notes for Odoo 17
+### Important Notes for Odoo 18
 
-In Odoo 17, the SMS provider system has been simplified, but GatewayAPI will still work correctly with this module. When you configure an account with GatewayAPI settings (API token and base URL), the module will automatically:
+In Odoo 18, the SMS provider system has been simplified, but GatewayAPI will still work correctly with this module. When you configure an account with GatewayAPI settings (API token and base URL), the module will automatically:
 
 1. Recognize it as a GatewayAPI-enabled account (shown with blue highlight in the list)
 2. Use it for sending SMS instead of the default Odoo SMS gateway
@@ -313,7 +313,7 @@ A successful run will show messages indicating that the JWT secret is configured
 
 ## Credits
 
-- Inspired by [smsapisi-odoo/smsapisi_connector](https://github.com/waltherB/smsapisi-odoo/tree/17.0/smsapisi_connector)
+- Inspired by [smsapisi-odoo/smsapisi_connector](https://github.com/waltherB/smsapisi-odoo/tree/18.0/smsapisi_connector)
 - Developed by [Walther Barnett](https://github.com/waltherB)
 
 ---
