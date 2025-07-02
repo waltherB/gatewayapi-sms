@@ -1,8 +1,6 @@
 # -*- coding: utf-8 -*-
 from odoo import fields, models, api, _
-from datetime import datetime, timedelta
 from odoo.exceptions import ValidationError
-import pytz
 import logging
 import requests
 
@@ -25,9 +23,9 @@ class IapAccount(models.Model):
         store=False,
         help="Indicates if this account is configured for GatewayAPI"
     )
-    service_name = fields.Char(
+    service = fields.Char(
         default="sms",
-        help="Service Name must be 'sms' for GatewayAPI integration."
+        help="Service must be 'sms' for GatewayAPI integration."
     )
     gatewayapi_base_url = fields.Char(
         string="GatewayAPI Base URL",
@@ -51,7 +49,7 @@ class IapAccount(models.Model):
         help="Minimum credit level for alerting purposes. Only used if 'Check for minimum credits' is enabled."
     )
     gatewayapi_enable_email_notification = fields.Boolean(
-        string="Enable Low Credit Email Alert", 
+        string="Enable Low Credit Email Alert",
         default=False,
         help="If checked, an email will be sent to the specified address when credits fall below the minimum threshold."
     )
@@ -68,7 +66,7 @@ class IapAccount(models.Model):
         string="Last Credit Check Time",
         readonly=True,
         copy=False,
-        help="Timestamp of the last automated credit balance check for this account.",
+        help="Timestamp of the last automated credit balance check for this account."
     )
     show_token = fields.Boolean(
         default=False,
@@ -139,13 +137,13 @@ class IapAccount(models.Model):
             '|',
             ('provider', '=', 'sms_api_gatewayapi'),
             '&',
-            ('service_name', '=', 'sms'),
+            ('service', '=', 'sms'),
             ('gatewayapi_base_url', '!=', False)
         ], limit=1)
         if not account:
             account = self.create({
                 'name': 'GatewayAPI',
-                'service_name': 'sms',
+                'service': 'sms',
                 'provider': 'sms_api_gatewayapi',
                 'gatewayapi_base_url': 'https://gatewayapi.eu',
                 'gatewayapi_sender': 'Odoo',
@@ -164,7 +162,7 @@ class IapAccount(models.Model):
         # (have URL and Token). Order by ID descending to prefer more recently created ones
         # if multiple somehow exist.
         gatewayapi_configured_accounts = self.search([
-            ('service_name', '=', 'sms'),
+            ('service', '=', 'sms'),
             ('gatewayapi_base_url', '!=', False),
             ('gatewayapi_base_url', '!=', ''),
             ('gatewayapi_api_token', '!=', False),
@@ -196,7 +194,7 @@ class IapAccount(models.Model):
     @api.model
     def check_gatewayapi_credit_balance(self):
         accounts_to_check = self.env['iap.account'].search([
-            ('service_name', '=', 'sms'),
+            ('service', '=', 'sms'),
             ('gatewayapi_check_min_tokens', '=', True),
             '|',
             ('provider', '=', 'sms_api_gatewayapi'),

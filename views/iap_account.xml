@@ -32,8 +32,8 @@
                     </group>
 
                     <group>
-                        <label for="service_name" string="Service Name" class="fw-bold"/>
-                        <field name="service_name" readonly="1" nolabel="1"/>
+                        <label for="service" string="Service" class="fw-bold"/>
+                        <field name="service" readonly="1" nolabel="1"/>
                     </group>
 
                     <group>
@@ -146,7 +146,7 @@
         <field name="domain">[('|', ('provider', '=', 'sms_api_gatewayapi'), '&amp;', ('gatewayapi_base_url', '!=', False), ('gatewayapi_api_token', '!=', False))]</field>
         <field name="context">{
             'default_name': 'GatewayAPI',
-            'default_service_name': 'sms',
+            'default_service': 'sms',
             'default_provider': 'sms_api_gatewayapi',
             'default_gatewayapi_base_url': 'https://gatewayapi.eu',
             'default_gatewayapi_sender': 'Odoo'
