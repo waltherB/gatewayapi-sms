@@ -18,22 +18,12 @@ class Sms(models.Model):
     }
 
     IAP_TO_SMS_FAILURE_TYPE = {
-        'credit': 'sms_credit',
-        'server_error': 'sms_server_error',
-        'json_rpc_error': 'sms_server_error',
-        'unauthorized': 'sms_server_error',
-        'wrong_number_format': 'sms_number_format',
-        'too_many_requests': 'sms_server_error',
-        'unregistered': 'sms_unregistered',
-        'cancelled': 'sms_canceled',  # Odoo has sms_cancel, sms_canceled
-        'blacklist': 'sms_blacklist',
-        'bounce': 'sms_bounce',  # General bounce, maybe not used by GatewayAPI
-        'error': 'sms_other',  # General error
-        # GatewayAPI specific DLR statuses mapped to Odoo failure types
-        'UNDELIVERABLE': 'sms_unregistered',  # From controllers/main.py
-        'REJECTED': 'sms_blacklist',  # From controllers/main.py
-        'EXPIRED': 'sms_other',  # From controllers/main.py
-        'SKIPPED': 'sms_other',  # From controllers/main.py
+        'server_error': 'smtp',
+        'number_format': 'recipient',
+        'unregistered': 'recipient',
+        'blacklist': 'recipient',
+        'other': 'unknown',
+        # Add more mappings as needed, but only to allowed values
     }
 
     sms_api_error = fields.Char()
@@ -252,9 +242,6 @@ class Sms(models.Model):
                 failure_type = self.IAP_TO_SMS_FAILURE_TYPE.get(iap_state, 'unknown')
                 if failure_type != 'unknown':
                     sms_sudo.sms_tracker_id._action_update_from_sms_state('error', failure_type=failure_type)
-                else:
-                    sms_sudo.sms_tracker_id._action_update_from_provider_error(iap_state)
-                to_delete = {'to_delete': True} if unlink_failed else {}
                 sms_sudo.write({'state': 'error', 'failure_type': failure_type, **to_delete})
 
         all_sms_sudo.mail_message_id._notify_message_notification_update()

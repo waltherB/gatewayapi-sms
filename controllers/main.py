@@ -202,16 +202,28 @@ class GatewayApiWebhookController(http.Controller):
             failure_type = False
         elif status == 'UNDELIVERABLE':
             new_odoo_state = 'error'
-            failure_type = 'sms_unregistered'
+            failure_type = 'recipient'
         elif status == 'REJECTED':
             new_odoo_state = 'error'
-            failure_type = 'sms_blacklist'
+            failure_type = 'recipient'
         elif status in ['EXPIRED', 'SKIPPED']:
             new_odoo_state = 'error'
-            failure_type = 'sms_other'
+            failure_type = 'unknown'
 
-        if (new_odoo_state != original_odoo_state or 
-                failure_type != sms_message.failure_type):
+        # Map custom SMS errors to allowed Odoo failure_type values
+        # 'sms_unregistered', 'sms_blacklist', 'sms_other' are not allowed
+        # Use 'recipient' for unregistered/blacklist, 'unknown' for other
+        if failure_type in ('sms_unregistered', 'sms_blacklist'):
+            failure_type = 'recipient'
+        elif failure_type == 'sms_other':
+            failure_type = 'unknown'
+        elif failure_type not in ('smtp', 'bounce', 'recipient', 'unknown', False):
+            failure_type = 'unknown'
+
+        if (
+            new_odoo_state != original_odoo_state or
+            failure_type != sms_message.failure_type
+        ):
             sms_message.write({
                 'state': new_odoo_state,
                 'failure_type': failure_type,
