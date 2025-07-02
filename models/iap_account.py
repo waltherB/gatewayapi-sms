@@ -23,10 +23,6 @@ class IapAccount(models.Model):
         store=False,
         help="Indicates if this account is configured for GatewayAPI"
     )
-    service = fields.Char(
-        default="sms",
-        help="Service must be 'sms' for GatewayAPI integration."
-    )
     gatewayapi_base_url = fields.Char(
         string="GatewayAPI Base URL",
         default="https://gatewayapi.eu",
