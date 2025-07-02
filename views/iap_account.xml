@@ -32,6 +32,11 @@
                     </group>
 
                     <group>
+                        <label for="service_name" string="Service Name" class="fw-bold"/>
+                        <field name="service_name" readonly="1" nolabel="1"/>
+                    </group>
+
+                    <group>
                         <label for="gatewayapi_base_url" string="GatewayAPI Base URL" class="fw-bold"/>
                         <field name="gatewayapi_base_url" nolabel="1"/>
                     </group>
