@@ -42,3 +42,4 @@ ENV/
 *.pyc
 local_addons/ 
 .zed
+.env
