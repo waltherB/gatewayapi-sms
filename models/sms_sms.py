@@ -97,7 +97,7 @@ class Sms(models.Model):
             sms_records_in_batch = self.env['sms.sms']
 
             # Get webhook URL from system parameter
-            webhook_url = self.env['ir.config_parameter'].sudo().get_param('web.base.url', '')
+            webhook_url = self.env['ir.config_parameter'].get_param('web.base.url', '')
             if not webhook_url:
                 _logger.error("GatewayAPI: web.base.url system parameter not set")
                 for sms_record in self:
@@ -230,7 +230,7 @@ class Sms(models.Model):
                 _logger.error(f"Result with non-string state: {result}")
                 result['state'] = str(result.get('state'))
         results_uuids = [result['uuid'] for result in results]
-        all_sms_sudo = self.env['sms.sms'].sudo().search([('uuid', 'in', results_uuids)]).with_context(sms_skip_msg_notification=True)
+        all_sms_sudo = self.env['sms.sms'].search([('uuid', 'in', results_uuids)]).with_context(sms_skip_msg_notification=True)
 
         for iap_state, results_group in tools.groupby(results, key=lambda result: result['state']):
             sms_sudo = all_sms_sudo.filtered(lambda s: s.uuid in {result['uuid'] for result in results_group})
@@ -242,6 +242,7 @@ class Sms(models.Model):
                 failure_type = self.IAP_TO_SMS_FAILURE_TYPE.get(iap_state, 'unknown')
                 if failure_type != 'unknown':
                     sms_sudo.sms_tracker_id._action_update_from_sms_state('error', failure_type=failure_type)
+                to_delete = {'to_delete': True} if unlink_failed else {}
                 sms_sudo.write({'state': 'error', 'failure_type': failure_type, **to_delete})
 
         all_sms_sudo.mail_message_id._notify_message_notification_update()

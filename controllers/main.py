@@ -24,7 +24,7 @@ class GatewayApiWebhookController(http.Controller):
         _logger.debug("GatewayAPI DLR: Received webhook with headers: %s",
                       dict(request.httprequest.headers))
 
-        jwt_secret = request.env['ir.config_parameter'].sudo().get_param(
+        jwt_secret = request.env['ir.config_parameter'].get_param(
             'gatewayapi.webhook_jwt_secret'
         )
         if not jwt_secret:
@@ -45,7 +45,7 @@ class GatewayApiWebhookController(http.Controller):
             )
 
         # Check if JWT verification is required
-        require_jwt = request.env['ir.config_parameter'].sudo().get_param(
+        require_jwt = request.env['ir.config_parameter'].get_param(
             'gatewayapi.webhook_require_jwt', 'true'
         ).lower() == 'true'
 
@@ -171,7 +171,7 @@ class GatewayApiWebhookController(http.Controller):
             json.dumps(data), gw_message_id
         )
 
-        SmsMessage = request.env['sms.sms'].sudo()
+        SmsMessage = request.env['sms.sms']
         sms_message = SmsMessage.search(
             [('gatewayapi_message_id', '=', str(gw_message_id))], limit=1
         )

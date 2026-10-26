@@ -220,7 +220,7 @@ class IapAccount(models.Model):
             if check_due:
                 _logger.info(f"Account {account.name}: Performing credit balance check.")
                 try:
-                    account.sudo().write({'gatewayapi_last_credit_check_time': now})
+                    account.write({'gatewayapi_last_credit_check_time': now})
                     api_credits = account.get_current_credit_balance()
                 except UserWarning as e:
                     _logger.warning(f"Account {account.name}: GatewayAPI error: {e}")
@@ -480,7 +480,7 @@ class IapAccount(models.Model):
         if self.gatewayapi_enable_email_notification and self.gatewayapi_low_credit_notification_email:
             _logger.info(f"Attempting to send low credits email alert for account '{self.name}' to '{self.gatewayapi_low_credit_notification_email}'")
             email_from = self.env.user.company_id.email_formatted or self.env.user.email_formatted or \
-                         self.env['ir.mail_server'].sudo().search([], limit=1).smtp_user
+                         self.env['ir.mail_server'].search([], limit=1).smtp_user
             if not email_from:
                 _logger.warning(f"Cannot determine 'email_from' for low credit notification for account {self.name}.")
 
@@ -493,7 +493,7 @@ class IapAccount(models.Model):
                 'res_id': self.id,
                 'auto_delete': True,
             }
-            mail = self.env['mail.mail'].sudo().create(mail_values)
+            mail = self.env['mail.mail'].create(mail_values)
             try:
                 mail.send()
                 _logger.info(f"Low credits email for account '{self.name}' sent successfully to '{self.gatewayapi_low_credit_notification_email}'. Mail ID: {mail.id}")
