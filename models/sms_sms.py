@@ -13,17 +13,18 @@ class Sms(models.Model):
     _inherit = "sms.sms"
 
     IAP_TO_SMS_STATE_SUCCESS = {
-        'success': 'sent',  # GatewayAPI accepted and delivered -> Odoo 'sent' (Leveret)
-        'sent': 'sent',     # Explicitly handle 'sent' if it comes through from other IAP
+        'success': 'pending',
+        'sent': 'pending',
+        'delivered': 'sent',
     }
 
     IAP_TO_SMS_FAILURE_TYPE = {
-        'server_error': 'smtp',
-        'number_format': 'recipient',
-        'unregistered': 'recipient',
-        'blacklist': 'recipient',
+        'server_error': 'sms_server',
+        'wrong_number_format': 'sms_number_format',
+        'number_format': 'sms_number_format',
+        'unregistered': 'sms_acc',
+        'blacklist': 'sms_blacklist',
         'other': 'unknown',
-        # Add more mappings as needed, but only to allowed values
     }
 
     sms_api_error = fields.Char()
@@ -240,9 +241,14 @@ class Sms(models.Model):
                 sms_sudo.write({'state': success_state, 'failure_type': False, **to_delete})
             else:
                 failure_type = self.IAP_TO_SMS_FAILURE_TYPE.get(iap_state, 'unknown')
-                if failure_type != 'unknown':
-                    sms_sudo.sms_tracker_id._action_update_from_sms_state('error', failure_type=failure_type)
+                sms_sudo.sms_tracker_id._action_update_from_sms_state(
+                    'error', failure_type=failure_type
+                )
                 to_delete = {'to_delete': True} if unlink_failed else {}
-                sms_sudo.write({'state': 'error', 'failure_type': failure_type, **to_delete})
+                sms_sudo.write({
+                    'state': 'error',
+                    'failure_type': failure_type,
+                    **to_delete,
+                })
 
         all_sms_sudo.mail_message_id._notify_message_notification_update()

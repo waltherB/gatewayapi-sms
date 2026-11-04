@@ -1,4 +1,6 @@
 # -*- coding: utf-8 -*-
+from datetime import timedelta
+
 from odoo import fields, models, api, _
 from odoo.exceptions import ValidationError
 import logging
@@ -422,29 +424,6 @@ class IapAccount(models.Model):
             rec.show_token = not rec.show_token
 # wba no reload as it messes up the view 
 #        return {'type': 'ir.actions.client', 'tag': 'reload'}
-
-    @api.model
-    def fields_view_get(self, view_id=None, view_type='form', toolbar=False, submenu=False):
-        res = super(IapAccount, self).fields_view_get(view_id=view_id, view_type=view_type, toolbar=toolbar, submenu=submenu)
-        return res
-
-    def name_get(self):
-        result = []
-        for rec in self:
-            if rec.gatewayapi_base_url and rec.provider == 'sms_api_gatewayapi':
-                if rec.name:
-                    result.append((rec.id, rec.name))
-                else:
-                    base_url = rec.gatewayapi_base_url or 'https://gatewayapi.eu'
-                    name = f"GatewayAPI {base_url}"
-                    result.append((rec.id, name))
-            else:
-                super_name_get = super(IapAccount, rec).name_get()
-                if super_name_get and super_name_get[0]:
-                    result.append(super_name_get[0])
-                else:
-                    result.append((rec.id, _('IAP Account %s') % rec.id))
-        return result
 
     def send_low_credits_notification(self):
         self.ensure_one()

@@ -142,7 +142,7 @@
     <record id="action_gatewayapi_accounts" model="ir.actions.act_window">
         <field name="name">GatewayAPI SMS Accounts</field>
         <field name="res_model">iap.account</field>
-        <field name="view_mode">tree,form</field>
+        <field name="view_mode">list,form</field>
         <field name="domain">[('|', ('provider', '=', 'sms_api_gatewayapi'), '&amp;', ('gatewayapi_base_url', '!=', False), ('gatewayapi_api_token', '!=', False))]</field>
         <field name="context">{
             'default_name': 'GatewayAPI',

@@ -21,10 +21,10 @@ class GatewayApiWebhookController(http.Controller):
     )
     def gatewayapi_dlr_webhook(self, **kwargs):
         """Webhook to receive Delivery Reports (DLRs) from GatewayAPI."""
-        _logger.debug("GatewayAPI DLR: Received webhook with headers: %s",
-                      dict(request.httprequest.headers))
+        _logger.debug("GatewayAPI DLR: Received webhook request.")
 
-        jwt_secret = request.env['ir.config_parameter'].get_param(
+        config_parameters = request.env['ir.config_parameter'].sudo()
+        jwt_secret = config_parameters.get_param(
             'gatewayapi.webhook_jwt_secret'
         )
         if not jwt_secret:
@@ -45,7 +45,7 @@ class GatewayApiWebhookController(http.Controller):
             )
 
         # Check if JWT verification is required
-        require_jwt = request.env['ir.config_parameter'].get_param(
+        require_jwt = config_parameters.get_param(
             'gatewayapi.webhook_require_jwt', 'true'
         ).lower() == 'true'
 
@@ -171,7 +171,7 @@ class GatewayApiWebhookController(http.Controller):
             json.dumps(data), gw_message_id
         )
 
-        SmsMessage = request.env['sms.sms']
+        SmsMessage = request.env['sms.sms'].sudo()
         sms_message = SmsMessage.search(
             [('gatewayapi_message_id', '=', str(gw_message_id))], limit=1
         )
@@ -198,32 +198,45 @@ class GatewayApiWebhookController(http.Controller):
             new_odoo_state = 'sent'
             failure_type = False
         elif status == 'ACCEPTED':
-            new_odoo_state = 'sent'
+            new_odoo_state = 'pending'
             failure_type = False
         elif status == 'UNDELIVERABLE':
             new_odoo_state = 'error'
-            failure_type = 'recipient'
+            failure_type = 'unknown'
         elif status == 'REJECTED':
             new_odoo_state = 'error'
-            failure_type = 'recipient'
+            failure_type = 'unknown'
         elif status in ['EXPIRED', 'SKIPPED']:
             new_odoo_state = 'error'
             failure_type = 'unknown'
 
-        # Map custom SMS errors to allowed Odoo failure_type values
-        # 'sms_unregistered', 'sms_blacklist', 'sms_other' are not allowed
-        # Use 'recipient' for unregistered/blacklist, 'unknown' for other
-        if failure_type in ('sms_unregistered', 'sms_blacklist'):
-            failure_type = 'recipient'
+        if failure_type == 'sms_unregistered':
+            failure_type = 'sms_acc'
         elif failure_type == 'sms_other':
             failure_type = 'unknown'
-        elif failure_type not in ('smtp', 'bounce', 'recipient', 'unknown', False):
+        elif failure_type not in (
+            'unknown',
+            'sms_number_missing',
+            'sms_number_format',
+            'sms_country_not_supported',
+            'sms_registration_needed',
+            'sms_credit',
+            'sms_server',
+            'sms_acc',
+            'sms_blacklist',
+            'sms_duplicate',
+            'sms_optout',
+            False,
+        ):
             failure_type = 'unknown'
 
         if (
             new_odoo_state != original_odoo_state or
             failure_type != sms_message.failure_type
         ):
+            sms_message.sms_tracker_id._action_update_from_sms_state(
+                new_odoo_state, failure_type=failure_type
+            )
             sms_message.write({
                 'state': new_odoo_state,
                 'failure_type': failure_type,
