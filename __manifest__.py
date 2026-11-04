@@ -19,7 +19,7 @@
         'iap',
     ],
     'external_dependencies': {
-        'python': ['phonenumbers', 'requests', 'pyjwt']
+        'python': ['phonenumbers', 'requests', 'jwt']
     },
     'data': [
         'security/ir.model.access.csv',

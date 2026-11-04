@@ -1,6 +1,6 @@
 # Translation of Odoo Server.
 # This file contains the translation of the following modules:
-# 	* gatewayapi-sms
+# 	* gatewayapi_sms
 #
 msgid ""
 msgstr ""
@@ -17,9 +17,9 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Poedit 3.6\n"
 
-#. module: gatewayapi-sms
+#. module: gatewayapi_sms
 #. odoo-python
-#: code:addons/gatewayapi-sms/models/iap_account.py:0
+#: code:addons/gatewayapi_sms/models/iap_account.py:0
 msgid ""
 "\n"
 "<p><b>⚠️ Low SMS Credits Alert</b></p>\n"
@@ -40,23 +40,23 @@ msgstr ""
 "<p>Tilføj flere kreditter for at sikre uafbrudt SMS -tjenester med GatewayAPI."
 "</p>\n"
 
-#. module: gatewayapi-sms
-#: model_terms:ir.ui.view,arch_db:gatewayapi-sms.iap_account_view_form
+#. module: gatewayapi_sms
+#: model_terms:ir.ui.view,arch_db:gatewayapi_sms.iap_account_view_form
 msgid "API Token"
 msgstr ""
 
-#. module: gatewayapi-sms
-#: model_terms:ir.ui.view,arch_db:gatewayapi-sms.iap_account_view_form
+#. module: gatewayapi_sms
+#: model_terms:ir.ui.view,arch_db:gatewayapi_sms.iap_account_view_form
 msgid "Account Name"
 msgstr "Kontonavn"
 
-#. module: gatewayapi-sms
-#: model:ir.model.fields,field_description:gatewayapi-sms.field_iap_account__message_needaction
+#. module: gatewayapi_sms
+#: model:ir.model.fields,field_description:gatewayapi_sms.field_iap_account__message_needaction
 msgid "Action Needed"
 msgstr "Handling påkrævet"
 
-#. module: gatewayapi-sms
-#: model:ir.model.fields,help:gatewayapi-sms.field_iap_account__gatewayapi_token_notification_action
+#. module: gatewayapi_sms
+#: model:ir.model.fields,help:gatewayapi_sms.field_iap_account__gatewayapi_token_notification_action
 msgid ""
 "Action to be performed when the number of credits is less than min_tokens. "
 "Select: Send GatewayAPI Low Credits Notification"
@@ -64,102 +64,102 @@ msgstr ""
 "Handling, der skal udføres, når antallet af kreditter er mindre end "
 "min_tokens. Vælg: Send Gatewayapi Low Credits Notification"
 
-#. module: gatewayapi-sms
-#: model:ir.model.fields,field_description:gatewayapi-sms.field_iap_account__activity_ids
+#. module: gatewayapi_sms
+#: model:ir.model.fields,field_description:gatewayapi_sms.field_iap_account__activity_ids
 msgid "Activities"
 msgstr "Aktiviteter"
 
-#. module: gatewayapi-sms
-#: model:ir.model.fields,field_description:gatewayapi-sms.field_iap_account__activity_exception_decoration
+#. module: gatewayapi_sms
+#: model:ir.model.fields,field_description:gatewayapi_sms.field_iap_account__activity_exception_decoration
 msgid "Activity Exception Decoration"
 msgstr ""
 
-#. module: gatewayapi-sms
-#: model:ir.model.fields,field_description:gatewayapi-sms.field_iap_account__activity_state
+#. module: gatewayapi_sms
+#: model:ir.model.fields,field_description:gatewayapi_sms.field_iap_account__activity_state
 msgid "Activity State"
 msgstr ""
 
-#. module: gatewayapi-sms
-#: model:ir.model.fields,field_description:gatewayapi-sms.field_iap_account__activity_type_icon
+#. module: gatewayapi_sms
+#: model:ir.model.fields,field_description:gatewayapi_sms.field_iap_account__activity_type_icon
 msgid "Activity Type Icon"
 msgstr ""
 
-#. module: gatewayapi-sms
-#: model:ir.model.fields,field_description:gatewayapi-sms.field_iap_account__message_attachment_count
+#. module: gatewayapi_sms
+#: model:ir.model.fields,field_description:gatewayapi_sms.field_iap_account__message_attachment_count
 msgid "Attachment Count"
 msgstr "Antal vedhæftninger"
 
-#. module: gatewayapi-sms
-#: model:ir.model.fields,field_description:gatewayapi-sms.field_iap_account__gatewayapi_balance
-#: model:ir.model.fields,field_description:gatewayapi-sms.field_iap_account__gatewayapi_balance_display
-#: model_terms:ir.ui.view,arch_db:gatewayapi-sms.iap_account_view_form
+#. module: gatewayapi_sms
+#: model:ir.model.fields,field_description:gatewayapi_sms.field_iap_account__gatewayapi_balance
+#: model:ir.model.fields,field_description:gatewayapi_sms.field_iap_account__gatewayapi_balance_display
+#: model_terms:ir.ui.view,arch_db:gatewayapi_sms.iap_account_view_form
 msgid "Balance"
 msgstr ""
 
-#. module: gatewayapi-sms
-#: model:ir.model.fields,help:gatewayapi-sms.field_iap_account__gatewayapi_base_url
+#. module: gatewayapi_sms
+#: model:ir.model.fields,help:gatewayapi_sms.field_iap_account__gatewayapi_base_url
 msgid "Base URL for GatewayAPI endpoints. Default: https://gatewayapi.eu"
 msgstr "Base URL til Gatewayapi. Standard: https://gatewayapi.eu"
 
-#. module: gatewayapi-sms
-#: model:ir.model.fields,field_description:gatewayapi-sms.field_iap_account__gatewayapi_check_min_tokens
-#: model_terms:ir.ui.view,arch_db:gatewayapi-sms.iap_account_view_form
+#. module: gatewayapi_sms
+#: model:ir.model.fields,field_description:gatewayapi_sms.field_iap_account__gatewayapi_check_min_tokens
+#: model_terms:ir.ui.view,arch_db:gatewayapi_sms.iap_account_view_form
 msgid "Check for minimum credits"
 msgstr "Kontroller for minimumskreditter"
 
-#. module: gatewayapi-sms
-#: model_terms:ir.ui.view,arch_db:gatewayapi-sms.iap_account_view_form
+#. module: gatewayapi_sms
+#: model_terms:ir.ui.view,arch_db:gatewayapi_sms.iap_account_view_form
 msgid "Check interval"
 msgstr "Kontrol interval"
 
-#. module: gatewayapi-sms
-#: model_terms:ir.ui.view,arch_db:gatewayapi-sms.iap_account_view_form
+#. module: gatewayapi_sms
+#: model_terms:ir.ui.view,arch_db:gatewayapi_sms.iap_account_view_form
 msgid "Connection Status"
 msgstr "Forbindelsesstatus"
 
-#. module: gatewayapi-sms
-#: model:ir.model.fields,field_description:gatewayapi-sms.field_iap_account__gatewayapi_connection_status
+#. module: gatewayapi_sms
+#: model:ir.model.fields,field_description:gatewayapi_sms.field_iap_account__gatewayapi_connection_status
 msgid "Connection status"
 msgstr "Forbindelsesstatus"
 
-#. module: gatewayapi-sms
-#: model_terms:ir.actions.act_window,help:gatewayapi-sms.action_gatewayapi_accounts
+#. module: gatewayapi_sms
+#: model_terms:ir.actions.act_window,help:gatewayapi_sms.action_gatewayapi_accounts
 msgid "Create a new GatewayAPI account"
 msgstr "Opret en ny GatewayAPI konto"
 
-#. module: gatewayapi-sms
-#: model:ir.model.fields,field_description:gatewayapi-sms.field_iap_account__gatewayapi_cron_interval_number
+#. module: gatewayapi_sms
+#: model:ir.model.fields,field_description:gatewayapi_sms.field_iap_account__gatewayapi_cron_interval_number
 msgid "Credit check interval"
 msgstr ""
 
-#. module: gatewayapi-sms
-#: model:ir.model.fields,field_description:gatewayapi-sms.field_iap_account__gatewayapi_token_notification_action
-#: model_terms:ir.ui.view,arch_db:gatewayapi-sms.iap_account_view_form
+#. module: gatewayapi_sms
+#: model:ir.model.fields,field_description:gatewayapi_sms.field_iap_account__gatewayapi_token_notification_action
+#: model_terms:ir.ui.view,arch_db:gatewayapi_sms.iap_account_view_form
 msgid "Credits notification action"
 msgstr ""
 
-#. module: gatewayapi-sms
-#: model:ir.model.fields,field_description:gatewayapi-sms.field_iap_account__gatewayapi_currency
+#. module: gatewayapi_sms
+#: model:ir.model.fields,field_description:gatewayapi_sms.field_iap_account__gatewayapi_currency
 msgid "Currency"
 msgstr "Valuta"
 
-#. module: gatewayapi-sms
-#: model:ir.model.fields,help:gatewayapi-sms.field_iap_account__gatewayapi_currency
+#. module: gatewayapi_sms
+#: model:ir.model.fields,help:gatewayapi_sms.field_iap_account__gatewayapi_currency
 msgid "Currency for GatewayAPI credit balance."
 msgstr "Valuta for GatewayAPI kredit balance."
 
-#. module: gatewayapi-sms
-#: model:ir.model.fields,help:gatewayapi-sms.field_iap_account__gatewayapi_balance
+#. module: gatewayapi_sms
+#: model:ir.model.fields,help:gatewayapi_sms.field_iap_account__gatewayapi_balance
 msgid "Current GatewayAPI credit balance."
 msgstr "Nuværende GatewayAPI kreditbalance."
 
-#. module: gatewayapi-sms
-#: model:ir.model.fields.selection,name:gatewayapi-sms.selection__iap_account__gatewayapi_cron_interval_type__days
+#. module: gatewayapi_sms
+#: model:ir.model.fields.selection,name:gatewayapi_sms.selection__iap_account__gatewayapi_cron_interval_type__days
 msgid "Days"
 msgstr "DAge"
 
-#. module: gatewayapi-sms
-#: model:ir.model.fields,help:gatewayapi-sms.field_iap_account__gatewayapi_low_credit_notification_email
+#. module: gatewayapi_sms
+#: model:ir.model.fields,help:gatewayapi_sms.field_iap_account__gatewayapi_low_credit_notification_email
 msgid ""
 "Email address to receive low credit alerts. Required if email alert is "
 "enabled."
@@ -167,143 +167,143 @@ msgstr ""
 "E-mailadresse til at modtage alarmer med lav kredit. Påkrævet, hvis e-"
 "mailalarm er aktiveret."
 
-#. module: gatewayapi-sms
-#: model:ir.model.fields,field_description:gatewayapi-sms.field_iap_account__gatewayapi_enable_email_notification
+#. module: gatewayapi_sms
+#: model:ir.model.fields,field_description:gatewayapi_sms.field_iap_account__gatewayapi_enable_email_notification
 msgid "Enable Low Credit Email Alert"
 msgstr "Aktivér  Lav kredit e-mail"
 
-#. module: gatewayapi-sms
-#: model:ir.model.fields,help:gatewayapi-sms.field_iap_account__gatewayapi_check_min_tokens
+#. module: gatewayapi_sms
+#: model:ir.model.fields,help:gatewayapi_sms.field_iap_account__gatewayapi_check_min_tokens
 msgid "Enable to check for minimum credits and trigger notifications."
 msgstr ""
 "Aktivér for at kontrollere for minimumskreditter og aktiverer meddelelser."
 
-#. module: gatewayapi-sms
-#: model_terms:ir.ui.view,arch_db:gatewayapi-sms.iap_account_view_form
+#. module: gatewayapi_sms
+#: model_terms:ir.ui.view,arch_db:gatewayapi_sms.iap_account_view_form
 msgid "Enter email address for alerts"
 msgstr "Indtast e-mailadresse til advarsler"
 
-#. module: gatewayapi-sms
-#: model:ir.model.fields,field_description:gatewayapi-sms.field_sms_resend_recipient__failure_reason
+#. module: gatewayapi_sms
+#: model:ir.model.fields,field_description:gatewayapi_sms.field_sms_resend_recipient__failure_reason
 msgid "Error Description"
 msgstr "Fejl Beskrivelse"
 
-#. module: gatewayapi-sms
-#: model_terms:ir.ui.view,arch_db:gatewayapi-sms.mail_resend_message_view_form
+#. module: gatewayapi_sms
+#: model_terms:ir.ui.view,arch_db:gatewayapi_sms.mail_resend_message_view_form
 msgid "Failure Description"
 msgstr "Fejl Beskrivelse"
 
-#. module: gatewayapi-sms
-#: model:ir.model.fields,field_description:gatewayapi-sms.field_iap_account__message_follower_ids
+#. module: gatewayapi_sms
+#: model:ir.model.fields,field_description:gatewayapi_sms.field_iap_account__message_follower_ids
 msgid "Followers"
 msgstr "Følgere"
 
-#. module: gatewayapi-sms
-#: model:ir.model.fields,field_description:gatewayapi-sms.field_iap_account__message_partner_ids
+#. module: gatewayapi_sms
+#: model:ir.model.fields,field_description:gatewayapi_sms.field_iap_account__message_partner_ids
 msgid "Followers (Partners)"
 msgstr "Følgere (partnere)"
 
-#. module: gatewayapi-sms
-#: model:ir.model.fields,help:gatewayapi-sms.field_iap_account__activity_type_icon
+#. module: gatewayapi_sms
+#: model:ir.model.fields,help:gatewayapi_sms.field_iap_account__activity_type_icon
 msgid "Font awesome icon e.g. fa-tasks"
 msgstr ""
 
-#. module: gatewayapi-sms
-#: model:ir.model.fields.selection,name:gatewayapi-sms.selection__iap_account__provider__sms_api_gatewayapi
+#. module: gatewayapi_sms
+#: model:ir.model.fields.selection,name:gatewayapi_sms.selection__iap_account__provider__sms_api_gatewayapi
 msgid "GatewayAPI"
 msgstr ""
 
-#. module: gatewayapi-sms
-#: model:ir.model.fields,help:gatewayapi-sms.field_iap_account__gatewayapi_api_token
+#. module: gatewayapi_sms
+#: model:ir.model.fields,help:gatewayapi_sms.field_iap_account__gatewayapi_api_token
 msgid "GatewayAPI API Token"
 msgstr ""
 
-#. module: gatewayapi-sms
-#: model:ir.model.fields,field_description:gatewayapi-sms.field_iap_account__gatewayapi_base_url
-#: model_terms:ir.ui.view,arch_db:gatewayapi-sms.iap_account_view_form
+#. module: gatewayapi_sms
+#: model:ir.model.fields,field_description:gatewayapi_sms.field_iap_account__gatewayapi_base_url
+#: model_terms:ir.ui.view,arch_db:gatewayapi_sms.iap_account_view_form
 msgid "GatewayAPI Base URL"
 msgstr ""
 
-#. module: gatewayapi-sms
+#. module: gatewayapi_sms
 #. odoo-python
-#: code:addons/gatewayapi-sms/models/iap_account.py:0
+#: code:addons/gatewayapi_sms/models/iap_account.py:0
 msgid "GatewayAPI Low Credits Alert: %s"
 msgstr ""
 
-#. module: gatewayapi-sms
-#: model:ir.model.fields,field_description:gatewayapi-sms.field_sms_sms__gatewayapi_message_id
+#. module: gatewayapi_sms
+#: model:ir.model.fields,field_description:gatewayapi_sms.field_sms_sms__gatewayapi_message_id
 msgid "GatewayAPI Message ID"
 msgstr ""
 
-#. module: gatewayapi-sms
-#: model:ir.actions.act_window,name:gatewayapi-sms.action_gatewayapi_accounts
+#. module: gatewayapi_sms
+#: model:ir.actions.act_window,name:gatewayapi_sms.action_gatewayapi_accounts
 msgid "GatewayAPI SMS Accounts"
 msgstr "GatewayAPI SMS Konto"
 
-#. module: gatewayapi-sms
-#: model_terms:ir.ui.view,arch_db:gatewayapi-sms.iap_account_view_form
+#. module: gatewayapi_sms
+#: model_terms:ir.ui.view,arch_db:gatewayapi_sms.iap_account_view_form
 msgid "GatewayAPI account"
 msgstr "GatewayAPI SMS konto"
 
-#. module: gatewayapi-sms
+#. module: gatewayapi_sms
 #. odoo-python
-#: code:addons/gatewayapi-sms/models/iap_account.py:0
+#: code:addons/gatewayapi_sms/models/iap_account.py:0
 msgid "GatewayAPI low on credits for %s"
 msgstr "GatewayAPI lav på kreditter for %s"
 
-#. module: gatewayapi-sms
-#: model:ir.actions.server,name:gatewayapi-sms.ir_cron_check_tokens_ir_actions_server
+#. module: gatewayapi_sms
+#: model:ir.actions.server,name:gatewayapi_sms.ir_cron_check_tokens_ir_actions_server
 msgid "GatewayAPI: Check credit balance"
 msgstr "GatewayAPI: Check kredit balance"
 
-#. module: gatewayapi-sms
-#: model:ir.model.fields,field_description:gatewayapi-sms.field_iap_account__gatewayapi_api_token
+#. module: gatewayapi_sms
+#: model:ir.model.fields,field_description:gatewayapi_sms.field_iap_account__gatewayapi_api_token
 msgid "Gatewayapi Api Token"
 msgstr ""
 
-#. module: gatewayapi-sms
-#: model:ir.model.fields,field_description:gatewayapi-sms.field_iap_account__has_message
+#. module: gatewayapi_sms
+#: model:ir.model.fields,field_description:gatewayapi_sms.field_iap_account__has_message
 msgid "Has Message"
 msgstr "Har besked"
 
-#. module: gatewayapi-sms
-#: model_terms:ir.ui.view,arch_db:gatewayapi-sms.iap_account_view_form
+#. module: gatewayapi_sms
+#: model_terms:ir.ui.view,arch_db:gatewayapi_sms.iap_account_view_form
 msgid "Hide Token"
 msgstr "Gem Token"
 
-#. module: gatewayapi-sms
-#: model:ir.model.fields.selection,name:gatewayapi-sms.selection__iap_account__gatewayapi_cron_interval_type__hours
+#. module: gatewayapi_sms
+#: model:ir.model.fields.selection,name:gatewayapi_sms.selection__iap_account__gatewayapi_cron_interval_type__hours
 msgid "Hours"
 msgstr "Timer"
 
-#. module: gatewayapi-sms
-#: model:ir.model.fields,help:gatewayapi-sms.field_iap_account__gatewayapi_cron_interval_number
+#. module: gatewayapi_sms
+#: model:ir.model.fields,help:gatewayapi_sms.field_iap_account__gatewayapi_cron_interval_number
 msgid "How often to check the credit balance (number of intervals)."
 msgstr "Hvor ofte skal der kontrolleres kreditbalance (antal intervaller)."
 
-#. module: gatewayapi-sms
-#: model:ir.model,name:gatewayapi-sms.model_iap_account
+#. module: gatewayapi_sms
+#: model:ir.model,name:gatewayapi_sms.model_iap_account
 msgid "IAP Account"
 msgstr "IAP Konto"
 
-#. module: gatewayapi-sms
+#. module: gatewayapi_sms
 #. odoo-python
-#: code:addons/gatewayapi-sms/models/iap_account.py:0
+#: code:addons/gatewayapi_sms/models/iap_account.py:0
 msgid "IAP Account %s"
 msgstr ""
 
-#. module: gatewayapi-sms
-#: model:ir.model.fields,field_description:gatewayapi-sms.field_iap_account__activity_exception_icon
+#. module: gatewayapi_sms
+#: model:ir.model.fields,field_description:gatewayapi_sms.field_iap_account__activity_exception_icon
 msgid "Icon"
 msgstr ""
 
-#. module: gatewayapi-sms
-#: model:ir.model.fields,help:gatewayapi-sms.field_iap_account__activity_exception_icon
+#. module: gatewayapi_sms
+#: model:ir.model.fields,help:gatewayapi_sms.field_iap_account__activity_exception_icon
 msgid "Icon to indicate an exception activity."
 msgstr ""
 
-#. module: gatewayapi-sms
-#: model:ir.model.fields,help:gatewayapi-sms.field_iap_account__gatewayapi_enable_email_notification
+#. module: gatewayapi_sms
+#: model:ir.model.fields,help:gatewayapi_sms.field_iap_account__gatewayapi_enable_email_notification
 msgid ""
 "If checked, an email will be sent to the specified address when credits fall "
 "below the minimum threshold."
@@ -311,175 +311,175 @@ msgstr ""
 "Hvis valgt, sendes en e-mail til den specificerede adresse, når kreditter "
 "falder under minimumstærsklen."
 
-#. module: gatewayapi-sms
-#: model:ir.model.fields,help:gatewayapi-sms.field_iap_account__message_needaction
+#. module: gatewayapi_sms
+#: model:ir.model.fields,help:gatewayapi_sms.field_iap_account__message_needaction
 msgid "If checked, new messages require your attention."
 msgstr "Hvis afkrydset, kræver nye beskeder din opmærksomhed "
 
-#. module: gatewayapi-sms
-#: model:ir.model.fields,help:gatewayapi-sms.field_iap_account__message_has_error
-#: model:ir.model.fields,help:gatewayapi-sms.field_iap_account__message_has_sms_error
+#. module: gatewayapi_sms
+#: model:ir.model.fields,help:gatewayapi_sms.field_iap_account__message_has_error
+#: model:ir.model.fields,help:gatewayapi_sms.field_iap_account__message_has_sms_error
 msgid "If checked, some messages have a delivery error."
 msgstr "Hvis afkrydset har nogle beskeder en leveringsfejl"
 
-#. module: gatewayapi-sms
-#: model:ir.model.fields,help:gatewayapi-sms.field_iap_account__is_gatewayapi
+#. module: gatewayapi_sms
+#: model:ir.model.fields,help:gatewayapi_sms.field_iap_account__is_gatewayapi
 msgid "Indicates if this account is configured for GatewayAPI"
 msgstr "Angiver, om denne konto er konfigureret til Gatewayapi"
 
-#. module: gatewayapi-sms
-#: model:ir.model.fields,field_description:gatewayapi-sms.field_iap_account__gatewayapi_cron_interval_type
-#: model_terms:ir.ui.view,arch_db:gatewayapi-sms.iap_account_view_form
+#. module: gatewayapi_sms
+#: model:ir.model.fields,field_description:gatewayapi_sms.field_iap_account__gatewayapi_cron_interval_type
+#: model_terms:ir.ui.view,arch_db:gatewayapi_sms.iap_account_view_form
 msgid "Interval type"
 msgstr "Interval type"
 
-#. module: gatewayapi-sms
-#: model:ir.model.fields,field_description:gatewayapi-sms.field_iap_account__message_is_follower
+#. module: gatewayapi_sms
+#: model:ir.model.fields,field_description:gatewayapi_sms.field_iap_account__message_is_follower
 msgid "Is Follower"
 msgstr "Er følger"
 
-#. module: gatewayapi-sms
-#: model:ir.model.fields,field_description:gatewayapi-sms.field_iap_account__is_gatewayapi
+#. module: gatewayapi_sms
+#: model:ir.model.fields,field_description:gatewayapi_sms.field_iap_account__is_gatewayapi
 msgid "Is GatewayAPI"
 msgstr ""
 
-#. module: gatewayapi-sms
-#: model:ir.model.fields,field_description:gatewayapi-sms.field_iap_account__gatewayapi_last_credit_check_time
+#. module: gatewayapi_sms
+#: model:ir.model.fields,field_description:gatewayapi_sms.field_iap_account__gatewayapi_last_credit_check_time
 msgid "Last Credit Check Time"
 msgstr ""
 
-#. module: gatewayapi-sms
-#: model:ir.model.fields,field_description:gatewayapi-sms.field_iap_account__gatewayapi_low_credit_notification_email
+#. module: gatewayapi_sms
+#: model:ir.model.fields,field_description:gatewayapi_sms.field_iap_account__gatewayapi_low_credit_notification_email
 msgid "Low Credit Notification Email"
 msgstr ""
 
-#. module: gatewayapi-sms
-#: model:ir.model.fields,field_description:gatewayapi-sms.field_iap_account__message_has_error
+#. module: gatewayapi_sms
+#: model:ir.model.fields,field_description:gatewayapi_sms.field_iap_account__message_has_error
 msgid "Message Delivery error"
 msgstr "Besked ved leveringsfejl"
 
-#. module: gatewayapi-sms
-#: model:ir.model.fields,field_description:gatewayapi-sms.field_iap_account__message_ids
+#. module: gatewayapi_sms
+#: model:ir.model.fields,field_description:gatewayapi_sms.field_iap_account__message_ids
 msgid "Messages"
 msgstr "Beskeder"
 
-#. module: gatewayapi-sms
-#: model:ir.model.fields,help:gatewayapi-sms.field_iap_account__gatewayapi_min_tokens
+#. module: gatewayapi_sms
+#: model:ir.model.fields,help:gatewayapi_sms.field_iap_account__gatewayapi_min_tokens
 msgid ""
 "Minimum credit level for alerting purposes. Only used if 'Check for minimum "
 "credits' is enabled."
 msgstr ""
 
-#. module: gatewayapi-sms
-#: model:ir.model.fields,field_description:gatewayapi-sms.field_iap_account__gatewayapi_min_tokens
-#: model_terms:ir.ui.view,arch_db:gatewayapi-sms.iap_account_view_form
+#. module: gatewayapi_sms
+#: model:ir.model.fields,field_description:gatewayapi_sms.field_iap_account__gatewayapi_min_tokens
+#: model_terms:ir.ui.view,arch_db:gatewayapi_sms.iap_account_view_form
 msgid "Minimum credits"
 msgstr "Minimum kredit"
 
-#. module: gatewayapi-sms
-#: model:ir.model.fields.selection,name:gatewayapi-sms.selection__iap_account__gatewayapi_cron_interval_type__minutes
+#. module: gatewayapi_sms
+#: model:ir.model.fields.selection,name:gatewayapi_sms.selection__iap_account__gatewayapi_cron_interval_type__minutes
 msgid "Minutes"
 msgstr "Minutter"
 
-#. module: gatewayapi-sms
-#: model:ir.model.fields,field_description:gatewayapi-sms.field_iap_account__my_activity_date_deadline
+#. module: gatewayapi_sms
+#: model:ir.model.fields,field_description:gatewayapi_sms.field_iap_account__my_activity_date_deadline
 msgid "My Activity Deadline"
 msgstr ""
 
-#. module: gatewayapi-sms
-#: model:ir.model.fields,field_description:gatewayapi-sms.field_iap_account__name
+#. module: gatewayapi_sms
+#: model:ir.model.fields,field_description:gatewayapi_sms.field_iap_account__name
 msgid "Name"
 msgstr "Navn"
 
-#. module: gatewayapi-sms
+#. module: gatewayapi_sms
 #. odoo-python
-#: code:addons/gatewayapi-sms/models/iap_account.py:0
+#: code:addons/gatewayapi_sms/models/iap_account.py:0
 msgid "Name is required for GatewayAPI accounts."
 msgstr "Navn skal udfyldes for GatewayAPI konti."
 
-#. module: gatewayapi-sms
-#: model:ir.model.fields,field_description:gatewayapi-sms.field_iap_account__activity_calendar_event_id
+#. module: gatewayapi_sms
+#: model:ir.model.fields,field_description:gatewayapi_sms.field_iap_account__activity_calendar_event_id
 msgid "Next Activity Calendar Event"
 msgstr ""
 
-#. module: gatewayapi-sms
-#: model:ir.model.fields,field_description:gatewayapi-sms.field_iap_account__activity_date_deadline
+#. module: gatewayapi_sms
+#: model:ir.model.fields,field_description:gatewayapi_sms.field_iap_account__activity_date_deadline
 msgid "Next Activity Deadline"
 msgstr ""
 
-#. module: gatewayapi-sms
-#: model:ir.model.fields,field_description:gatewayapi-sms.field_iap_account__activity_summary
+#. module: gatewayapi_sms
+#: model:ir.model.fields,field_description:gatewayapi_sms.field_iap_account__activity_summary
 msgid "Next Activity Summary"
 msgstr ""
 
-#. module: gatewayapi-sms
-#: model:ir.model.fields,field_description:gatewayapi-sms.field_iap_account__activity_type_id
+#. module: gatewayapi_sms
+#: model:ir.model.fields,field_description:gatewayapi_sms.field_iap_account__activity_type_id
 msgid "Next Activity Type"
 msgstr ""
 
-#. module: gatewayapi-sms
-#: model:ir.model.fields,field_description:gatewayapi-sms.field_iap_account__message_needaction_counter
+#. module: gatewayapi_sms
+#: model:ir.model.fields,field_description:gatewayapi_sms.field_iap_account__message_needaction_counter
 msgid "Number of Actions"
 msgstr "Antal handlinger"
 
-#. module: gatewayapi-sms
-#: model:ir.model.fields,field_description:gatewayapi-sms.field_iap_account__message_has_error_counter
+#. module: gatewayapi_sms
+#: model:ir.model.fields,field_description:gatewayapi_sms.field_iap_account__message_has_error_counter
 msgid "Number of errors"
 msgstr "Antal fejl"
 
-#. module: gatewayapi-sms
-#: model:ir.model.fields,help:gatewayapi-sms.field_iap_account__message_needaction_counter
+#. module: gatewayapi_sms
+#: model:ir.model.fields,help:gatewayapi_sms.field_iap_account__message_needaction_counter
 msgid "Number of messages requiring action"
 msgstr "Antal meddelelser der kræver handling"
 
-#. module: gatewayapi-sms
-#: model:ir.model.fields,help:gatewayapi-sms.field_iap_account__message_has_error_counter
+#. module: gatewayapi_sms
+#: model:ir.model.fields,help:gatewayapi_sms.field_iap_account__message_has_error_counter
 msgid "Number of messages with delivery error"
 msgstr "Antal beskeder med leveringsfejl"
 
-#. module: gatewayapi-sms
-#: model:ir.model,name:gatewayapi-sms.model_sms_sms
+#. module: gatewayapi_sms
+#: model:ir.model,name:gatewayapi_sms.model_sms_sms
 msgid "Outgoing SMS"
 msgstr "Udgående SMS"
 
-#. module: gatewayapi-sms
-#: model:ir.model.fields,field_description:gatewayapi-sms.field_iap_account__provider
+#. module: gatewayapi_sms
+#: model:ir.model.fields,field_description:gatewayapi_sms.field_iap_account__provider
 msgid "Provider"
 msgstr ""
 
-#. module: gatewayapi-sms
-#: model:ir.model.fields,field_description:gatewayapi-sms.field_iap_account__rating_ids
+#. module: gatewayapi_sms
+#: model:ir.model.fields,field_description:gatewayapi_sms.field_iap_account__rating_ids
 msgid "Ratings"
 msgstr "Bedømmelser"
 
-#. module: gatewayapi-sms
-#: model:ir.model,name:gatewayapi-sms.model_sms_resend_recipient
+#. module: gatewayapi_sms
+#: model:ir.model,name:gatewayapi_sms.model_sms_resend_recipient
 msgid "Resend Notification"
 msgstr "Gensend notifikation"
 
-#. module: gatewayapi-sms
-#: model:ir.model.fields,field_description:gatewayapi-sms.field_iap_account__activity_user_id
+#. module: gatewayapi_sms
+#: model:ir.model.fields,field_description:gatewayapi_sms.field_iap_account__activity_user_id
 msgid "Responsible User"
 msgstr ""
 
-#. module: gatewayapi-sms
-#: model:ir.model.fields,field_description:gatewayapi-sms.field_iap_account__message_has_sms_error
+#. module: gatewayapi_sms
+#: model:ir.model.fields,field_description:gatewayapi_sms.field_iap_account__message_has_sms_error
 msgid "SMS Delivery error"
 msgstr "SMS leveringsfejl"
 
-#. module: gatewayapi-sms
-#: model:ir.actions.server,name:gatewayapi-sms.low_credits_notification_action
+#. module: gatewayapi_sms
+#: model:ir.actions.server,name:gatewayapi_sms.low_credits_notification_action
 msgid "Send GatewayAPI Low Credits Notification"
 msgstr ""
 
-#. module: gatewayapi-sms
-#: model:ir.model.fields,field_description:gatewayapi-sms.field_iap_account__gatewayapi_sender
-#: model_terms:ir.ui.view,arch_db:gatewayapi-sms.iap_account_view_form
+#. module: gatewayapi_sms
+#: model:ir.model.fields,field_description:gatewayapi_sms.field_iap_account__gatewayapi_sender
+#: model_terms:ir.ui.view,arch_db:gatewayapi_sms.iap_account_view_form
 msgid "Sender Name"
 msgstr "Afsender navn eller nummer"
 
-#. module: gatewayapi-sms
-#: model:ir.model.fields,help:gatewayapi-sms.field_iap_account__gatewayapi_sender
+#. module: gatewayapi_sms
+#: model:ir.model.fields,help:gatewayapi_sms.field_iap_account__gatewayapi_sender
 msgid ""
 "Sender name to use for outgoing SMS. This will appear as the sender on "
 "recipients' phones."
@@ -487,29 +487,29 @@ msgstr ""
 "Afsendernavn eller nummer til brug for udgående SMS’er. Dette navn eller "
 "nummer vil vises som afsender på modtagerens telefon."
 
-#. module: gatewayapi-sms
-#: model:ir.model.fields,help:gatewayapi-sms.field_iap_account__service_name
+#. module: gatewayapi_sms
+#: model:ir.model.fields,help:gatewayapi_sms.field_iap_account__service_name
 msgid "Service Name must be 'sms' for GatewayAPI integration."
 msgstr "Service Name skal være  'sms' for GatewayAPI integrationen."
 
-#. module: gatewayapi-sms
-#: model:ir.model.fields,field_description:gatewayapi-sms.field_iap_account__show_token
-#: model_terms:ir.ui.view,arch_db:gatewayapi-sms.iap_account_view_form
+#. module: gatewayapi_sms
+#: model:ir.model.fields,field_description:gatewayapi_sms.field_iap_account__show_token
+#: model_terms:ir.ui.view,arch_db:gatewayapi_sms.iap_account_view_form
 msgid "Show Token"
 msgstr "Vis Token"
 
-#. module: gatewayapi-sms
-#: model:ir.model.fields,help:gatewayapi-sms.field_iap_account__show_token
+#. module: gatewayapi_sms
+#: model:ir.model.fields,help:gatewayapi_sms.field_iap_account__show_token
 msgid "Show or hide the API token in the form."
 msgstr "Vis eller gem API token i formularen"
 
-#. module: gatewayapi-sms
-#: model:ir.model.fields,field_description:gatewayapi-sms.field_sms_sms__sms_api_error
+#. module: gatewayapi_sms
+#: model:ir.model.fields,field_description:gatewayapi_sms.field_sms_sms__sms_api_error
 msgid "Sms Api Error"
 msgstr "Sms Api Error"
 
-#. module: gatewayapi-sms
-#: model:ir.model.fields,help:gatewayapi-sms.field_iap_account__activity_state
+#. module: gatewayapi_sms
+#: model:ir.model.fields,help:gatewayapi_sms.field_iap_account__activity_state
 msgid ""
 "Status based on activities\n"
 "Overdue: Due date is already passed\n"
@@ -521,23 +521,23 @@ msgstr ""
 "I dag: Aktivitetsdato er i dag\n"
 "Planlagt: Fremtidige aktiviteter."
 
-#. module: gatewayapi-sms
-#: model:ir.model.fields,help:gatewayapi-sms.field_iap_account__gatewayapi_connection_status
+#. module: gatewayapi_sms
+#: model:ir.model.fields,help:gatewayapi_sms.field_iap_account__gatewayapi_connection_status
 msgid "Status of the last connection test."
 msgstr "Status for den sidste forbindelsestest."
 
-#. module: gatewayapi-sms
-#: model:ir.model.fields,field_description:gatewayapi-sms.field_iap_account__service_name
+#. module: gatewayapi_sms
+#: model:ir.model.fields,field_description:gatewayapi_sms.field_iap_account__service_name
 msgid "Technical Name"
 msgstr "Teknisk navn"
 
-#. module: gatewayapi-sms
-#: model_terms:ir.ui.view,arch_db:gatewayapi-sms.iap_account_view_form
+#. module: gatewayapi_sms
+#: model_terms:ir.ui.view,arch_db:gatewayapi_sms.iap_account_view_form
 msgid "Test Connection"
 msgstr "Test Forbindelse"
 
-#. module: gatewayapi-sms
-#: model_terms:ir.actions.server,help:gatewayapi-sms.ir_cron_check_tokens_ir_actions_server
+#. module: gatewayapi_sms
+#: model_terms:ir.actions.server,help:gatewayapi_sms.ir_cron_check_tokens_ir_actions_server
 msgid ""
 "The individual check schedule per account is determined by its\n"
 "                    'Credit check interval' and 'Interval type' settings. "
@@ -549,8 +549,8 @@ msgstr ""
 "Type'. Denne globale Cron\n"
 "                    Kører hver time for at se, hvilke konti der skal checker."
 
-#. module: gatewayapi-sms
-#: model_terms:ir.actions.server,help:gatewayapi-sms.ir_cron_check_tokens_ir_actions_server
+#. module: gatewayapi_sms
+#: model_terms:ir.actions.server,help:gatewayapi_sms.ir_cron_check_tokens_ir_actions_server
 msgid ""
 "This cron job periodically checks the credit balance of your GatewayAPI "
 "accounts\n"
@@ -560,56 +560,56 @@ msgstr ""
 "GatewayAPI-konti\n"
 "                    Hvis de er konfigureret til automatiseret kontrol."
 
-#. module: gatewayapi-sms
-#: model_terms:ir.actions.act_window,help:gatewayapi-sms.action_gatewayapi_accounts
+#. module: gatewayapi_sms
+#: model_terms:ir.actions.act_window,help:gatewayapi_sms.action_gatewayapi_accounts
 msgid "This will create an account for sending SMS via GatewayAPI."
 msgstr "Dette opretter en konto til at sende SMS via GatewayAPI."
 
-#. module: gatewayapi-sms
-#: model:ir.model.fields,help:gatewayapi-sms.field_iap_account__gatewayapi_last_credit_check_time
+#. module: gatewayapi_sms
+#: model:ir.model.fields,help:gatewayapi_sms.field_iap_account__gatewayapi_last_credit_check_time
 msgid "Timestamp of the last automated credit balance check for this account."
 msgstr ""
 "Tidsstempel for den sidst automatiserede kreditbalancekontrol for denne konto."
 
-#. module: gatewayapi-sms
-#: model:ir.model.fields,help:gatewayapi-sms.field_iap_account__activity_exception_decoration
+#. module: gatewayapi_sms
+#: model:ir.model.fields,help:gatewayapi_sms.field_iap_account__activity_exception_decoration
 msgid "Type of the exception activity on record."
 msgstr ""
 
-#. module: gatewayapi-sms
+#. module: gatewayapi_sms
 #. odoo-python
-#: code:addons/gatewayapi-sms/models/iap_account.py:0
+#: code:addons/gatewayapi_sms/models/iap_account.py:0
 msgid "Unexpected error. Check server log."
 msgstr ""
 
-#. module: gatewayapi-sms
-#: model:ir.model.fields,help:gatewayapi-sms.field_iap_account__gatewayapi_cron_interval_type
+#. module: gatewayapi_sms
+#: model:ir.model.fields,help:gatewayapi_sms.field_iap_account__gatewayapi_cron_interval_type
 msgid "Unit for the credit check interval."
 msgstr "Enhed til kreditkontrolintervallet."
 
-#. module: gatewayapi-sms
-#: model:ir.model.fields,field_description:gatewayapi-sms.field_iap_account__website_message_ids
+#. module: gatewayapi_sms
+#: model:ir.model.fields,field_description:gatewayapi_sms.field_iap_account__website_message_ids
 msgid "Website Messages"
 msgstr "Beskeder fra hjemmesiden"
 
-#. module: gatewayapi-sms
-#: model:ir.model.fields,help:gatewayapi-sms.field_iap_account__website_message_ids
+#. module: gatewayapi_sms
+#: model:ir.model.fields,help:gatewayapi_sms.field_iap_account__website_message_ids
 msgid "Website communication history"
 msgstr "Hjemmesidens kommunikations historik"
 
-#. module: gatewayapi-sms
-#: model:ir.model.fields.selection,name:gatewayapi-sms.selection__iap_account__gatewayapi_cron_interval_type__weeks
+#. module: gatewayapi_sms
+#: model:ir.model.fields.selection,name:gatewayapi_sms.selection__iap_account__gatewayapi_cron_interval_type__weeks
 msgid "Weeks"
 msgstr ""
 
-#. module: gatewayapi-sms
-#: model_terms:ir.ui.view,arch_db:gatewayapi-sms.iap_account_view_form
+#. module: gatewayapi_sms
+#: model_terms:ir.ui.view,arch_db:gatewayapi_sms.iap_account_view_form
 msgid ""
 "When enabled, you will receive a notification if your credits fall below the "
 "minimum."
 msgstr "Uger"
 
-#. module: gatewayapi-sms
-#: model_terms:ir.ui.view,arch_db:gatewayapi-sms.iap_account_view_form
+#. module: gatewayapi_sms
+#: model_terms:ir.ui.view,arch_db:gatewayapi_sms.iap_account_view_form
 msgid "e.g. GatewayAPI SMS"
 msgstr "f.eks. GatewayAPI SMS"
